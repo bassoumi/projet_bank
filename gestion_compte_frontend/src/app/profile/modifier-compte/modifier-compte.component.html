@@ -1,0 +1,169 @@
+<br><br><br><br>
+<h1 style="text-align: center;">Tous les comptes créés</h1>
+<div class="container-fluid callback mt-0 py-5">
+    <div class="row">
+      <div class="col-lg-4 border-end" style="margin-left: 120px; border: 2px solid #007bff; border-radius: 8px; padding: 15px;">
+        <h4 class="text-center">Liste Des Comptes</h4>
+        <ul class="list-group">
+          <li 
+          *ngFor="let account of accounts" 
+          class="list-group-item d-flex justify-content-between align-items-center"
+          [ngClass]="{'active': selectedAccount?._id === account._id}"
+          (click)="selectAccount(account)">
+          {{ account.name }}
+          <span 
+          class="badge rounded-pill"
+          [ngClass]="{
+            'bg-success': selectedAccount?._id !== account._id && account.status !== 'inactif' && account.status !== 'fermé',
+            'bg-info': selectedAccount?._id === account._id && account.status !== 'inactif' && account.status !== 'fermé',
+            'bg-danger': account.status === 'inactif' || account.status === 'fermé'
+          }">
+          {{ account.status }}
+        </span>
+        
+      </li>
+      
+        </ul>
+      </div>
+  
+      <div class="col-lg-6" style="margin-left: 20px; " >
+        <div *ngIf="selectedAccount" class="card p-3 border" >
+          <h4>Détails  pour {{ selectedAccount.name }}</h4>
+          <form [formGroup]="accountForm" (ngSubmit)="updateAccount()">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="name" class="form-label">Nom et Prénom</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  class="form-control" 
+                  formControlName="name" />
+              </div>
+  
+              <div class="col-md-6 mb-3">
+                <label for="balance" class="form-label">Solde</label>
+                <input 
+                  type="number" 
+                  id="balance" 
+                  class="form-control" 
+                  formControlName="balance" />
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="accountType" class="form-label">Type de Compte</label>
+                <input 
+                  type="text" 
+                  id="accountType" 
+                  class="form-control" 
+                  formControlName="accountType" 
+                  readonly />
+              </div>
+  
+              <div class="col-md-6 mb-3">
+                <label for="status" class="form-label">Status</label>
+                <select id="status" class="form-select" formControlName="status">
+                  <option value="actif">Actif</option>
+                  <option value="inactif">Inactif</option>
+                  <option value="fermé">Fermé</option>
+                </select>
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  class="form-control" 
+                  formControlName="email" 
+                  readonly />
+              </div>
+  
+              <div class="col-md-6 mb-3">
+                <label for="createdAt" class="form-label">Creation</label>
+                <input 
+                  type="text" 
+                  id="createdAt" 
+                  class="form-control" 
+                  [value]="selectedAccount.createdAt | date:'medium'" 
+                  readonly />
+              </div>
+            </div>
+            <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="phone" class="form-label">Tél</label>
+                <input 
+                  type="text" 
+                  id="phone" 
+                  class="form-control" 
+                  formControlName="phone" />
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="dob" class="form-label">Date de naissance</label>
+                <input 
+                  type="date" 
+                  id="dob" 
+                  class="form-control" 
+                  placeholder="YYYY-MM-DD" 
+                  formControlName="dob" 
+                  [value]="formatDate(accountForm.get('dob')?.value)" />
+              </div>
+              
+            </div>
+            <div class="row">
+                <div class="row" [formGroupName]="'address'">
+                    <div class="col-md-6 mb-3">
+                      <label for="street" class="form-label">Rue</label>
+                      <input 
+                        type="text" 
+                        id="street" 
+                        class="form-control" 
+                        formControlName="street" />
+                    </div>
+                    
+                    <div class="col-md-6 mb-3">
+                      <label for="zip" class="form-label"> Code Postale</label>
+                      <input 
+                        type="text" 
+                        id="zip" 
+                        class="form-control" 
+                        formControlName="zip" />
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <label for="city" class="form-label">Ville</label>
+                        <input 
+                          type="text" 
+                          id="city" 
+                          class="form-control" 
+                          formControlName="city" />
+                      </div>
+                      
+                    </div>
+                 
+                  </div>
+            </div>
+  
+            <div class="row">
+              <div class="col-12 text-center">
+                <button 
+                type="submit" 
+                class="btn btn-success" 
+                (click)="updateAccount()">
+                Update
+              </button>              </div>
+            </div>
+          </form>
+        </div>
+        <div *ngIf="!selectedAccount" class="text-center text-muted">
+          <p>Selectionnez une compte pour voire et faire mis à jours</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

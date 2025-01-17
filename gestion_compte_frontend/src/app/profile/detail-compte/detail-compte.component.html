@@ -1,0 +1,52 @@
+<div class="container-fluid  mt-5 py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="bg-white border rounded p-4 p-sm-5">
+            <div class="text-center mx-auto mb-4">
+              <h1 class="display-5">Informations sur le compte</h1>
+            </div>
+  
+            <div class="mb-4">
+              <div class="row">
+                <div class="col-md-6">
+                  <p><strong>ID:</strong> {{ account._id }}</p>
+                  <p><strong>NOM et Prénom :</strong> {{ account.name }}</p>
+                  <p><strong>Email:</strong> {{ account.email }}</p>
+                  <p><strong>Type de compte:</strong> {{ account.accountType }}</p>
+                  <p><strong>Status:</strong> 
+                    <span class="badge" [ngClass]="{
+                      'bg-success': account.status === 'actif',
+                      'bg-warning': account.status === 'inactif',
+                      'bg-danger': account.status === 'fermé'
+                    }">
+                      {{ account.status | titlecase }}
+                    </span>
+                  </p>
+                </div>
+                <div class="col-md-6">
+                  <p><strong>Solde :</strong> {{ account.balance | currency: 'TND' : 'symbol' : '1.0-2' }}</p>
+
+                  <p><strong>Date de création :</strong> {{ account.createdAt | date: 'medium' }}</p>
+                  <p><strong>Datede mise à jours:</strong> {{ account.updatedAt | date: 'medium' }}</p>
+                  <p><strong>Notifications:</strong></p>
+                  <ul>
+                    <li *ngIf="account.notifications.email">Email: Activé </li>
+                    <li *ngIf="account.notifications.sms">SMS: Enabled</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+  
+            <div [ngClass]="{ 'd-none': isPrinting }" class="d-flex justify-content-between mt-4">
+              <button class="btn btn-info" (click)="goBack()">Retourner aux détails</button>
+              <button class="btn btn-danger" (click)="printDetails()">Imprimé </button>
+            </div>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

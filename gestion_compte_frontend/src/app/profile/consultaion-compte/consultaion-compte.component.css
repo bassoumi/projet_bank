@@ -1,0 +1,13 @@
+td {
+    text-align: left; /* Aligner tout le contenu à gauche par défaut */
+  }
+  
+  .balance {
+    margin-right: 0.5rem; /* Ajoute un espace entre le montant et le symbole */
+  }
+  
+  .currency-symbol {
+    text-align: right; /* Aligner "TND" à droite */
+    float: right; /* Force le symbole TND à se déplacer vers la droite */
+  }
+  

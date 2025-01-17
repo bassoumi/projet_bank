@@ -1,0 +1,67 @@
+<!-- <div class="container-fluid page-headerL wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <h1 class="display-3 mb-4 animated slideInDown">Login</h1>
+        <nav aria-label="breadcrumb animated slideInDown">
+
+        </nav>
+    </div>
+</div> 
+ -->
+<div class="container-fluid callbackL mb-5  ">
+  <div class="container">
+  
+    <h1 class="display-3 py-5 animated slideInDown" style="color: white;">Login</h1>
+    <nav aria-label="breadcrumb animated slideInDown">
+
+    </nav>
+</div>
+  <br><br>
+    <div class="container pt-3">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="bg-white border rounded p-4 p-sm-5">
+            <div class="alert alert-danger" *ngIf="errorMessage">
+              {{ errorMessage }}
+            </div>
+            <div class="text-center mx-auto mb-4">
+              <h1 class="display-5">Connectez-vous à votre compte</h1>
+            </div>
+            
+            <form [formGroup]="loginForm" (ngSubmit)="onlogin()">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="username"
+                  placeholder="Username"
+                  formControlName="username"
+                />
+                <label for="username">Nom de Utilisatuer</label>
+                <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="text-danger">
+                  Le nom d'utilisateur est requis (minimum 3 caractères)
+                </div>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  placeholder="Password"
+                  formControlName="password"
+                />
+                <label for="password">Mot de Passe</label>
+                <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger">
+                  Le mot de passe est requis (minimum 6 caractères)
+                </div>
+              </div>
+              <button class="btn btn-primary w-100 py-3" type="submit" [disabled]="loginForm.invalid">
+                Se connecter
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  

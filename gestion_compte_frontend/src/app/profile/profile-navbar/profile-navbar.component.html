@@ -1,0 +1,109 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+<header class="header fixed-top" id="header">
+  <div class="header_toggle">
+    <i class='fas fa-bars ml-0 mt-2' id="header-toggle" (click)="toggleSidebar()" style="font-size: 30px; color: white; padding: 10px 0 0 0;"></i> 
+  </div>
+  <div class="top-bar row gx-0 align-items-center d-none d-lg-flex">
+  
+    <div style="display: flex; align-items: center;">
+
+      <p style="font-size: 40px; font-family: 'Arial', sans-serif; margin-right: 220px; 
+      color: #333; font-weight: 600; letter-spacing: 1px; line-height: 1.4; text-transform: uppercase;">
+     <span style="color: #D53030; font-weight: 700;">BH</span>: <span style="font-style: italic;">La nouvelle identité révélée</span>
+   </p>
+   
+    
+    
+    </div>
+    
+    
+</div>
+
+  
+<!--   <div class="container_nav">
+   
+    <div class="time-display">
+      {{ currentTime }}
+    </div>
+    <div class="btn-group">
+      <button type="button" aria-expanded="false">
+        <img src="../../assets/img/symbole_hopitale-removebg-preview.png" class="img-fluid" alt="" style="width: 45px;">
+      </button>
+    </div>
+  </div> -->
+  
+</header>
+
+<div class="l-navbar" id="nav-bar">
+  <nav class="nav d-flex flex-column">
+    <div class="mb-2"> 
+
+      <a   
+    routerLink="consultaion" 
+    routerLinkActive="active-link" 
+    class="nav_link d-flex align-items-center text-start w-100 text-decoration-none" 
+    title="Consulter les comptes">
+    <i class="fas fa-users fa-lg mr-3"></i>
+    <span class="nav_name">Consulter les comptes</span> 
+</a>
+
+
+        <a 
+        routerLink="creation" 
+        routerLinkActive="active-link" 
+        class="nav_link d-flex align-items-center text-start w-100 text-decoration-none" 
+        title="Ajouter un Compte">
+        <i class="fas fa-plus fa-lg mr-3"></i>
+        <span class="nav_name">Ajouter un Compte</span> 
+    </a>
+    
+  
+
+
+<a 
+    routerLink="modifie" 
+    routerLinkActive="active-link" 
+    class="nav_link d-flex align-items-center text-start w-100 text-decoration-none" 
+    title="Modifié les Comptes">
+    <i class="fas fa-edit fa-lg mr-3"></i>
+    <span class="nav_name">Modifié les Comptes</span> 
+</a>
+
+<a 
+    routerLink="historique" 
+    routerLinkActive="active-link" 
+    class="nav_link d-flex align-items-center text-start w-100 text-decoration-none" 
+    title="Historique des Mises à Jour">
+    <i class="fas fa-history fa-lg mr-3"></i>
+    <span class="nav_name">Historique Des Mise à Jour</span> 
+</a>
+
+
+
+
+
+  
+  <a 
+      routerLink="tableau_de_bord" 
+      routerLinkActive="active-link" 
+      class="nav_link d-flex align-items-center text-start w-100 text-decoration-none" 
+      title="Tableau de bord">
+      <i class="fas fa-chart-line fa-lg"></i>
+      <span class="nav_name">Tableau de bord</span> 
+  </a>
+  <a 
+  (click)="logout()" 
+  class="nav_link d-flex align-items-center text-start w-100 text-decoration-none" 
+  title="Deconnections">
+  <i class="fas fa-sign-out-alt fa-lg mr-3"></i>
+  <span class="nav_name">Deconnections</span>
+</a>
+
+  
+
+  
+    </div>
+  </nav>
+</div>
+

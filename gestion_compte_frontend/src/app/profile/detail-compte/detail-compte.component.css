@@ -1,0 +1,6 @@
+@media print {
+    .d-none {
+      display: none !important;
+    }
+  }
+  

@@ -1,0 +1,195 @@
+<div class="container-fluid callback mt-0 py-5">
+    <div class="container pt-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="bg-white border rounded p-4 p-sm-5">
+            <div class="text-center mx-auto mb-4">
+              <h1 class="display-5">Créer un nouveau compte</h1>
+            </div>
+            <div class="alert alert-danger" *ngIf="errorMessage">
+              {{ errorMessage }}
+            </div>
+            <form [formGroup]="createAccountForm" (ngSubmit)="onCreateAccount()">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-floating mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="name"
+                      placeholder="Full Name"
+                      formControlName="name"
+                    />
+                    <label for="name">Nom et Prénom</label>
+                    <div *ngIf="createAccountForm.get('name')?.invalid && createAccountForm.get('name')?.touched" class="text-danger">
+                      Le nom complet est requis
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating mb-3">
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      placeholder="Email"
+                      formControlName="email"
+                    />
+                    <label for="email">Email Address</label>
+                    <div *ngIf="createAccountForm.get('email')?.invalid && createAccountForm.get('email')?.touched" class="text-danger">
+                     Entrer un valide Email
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-floating mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="phone"
+                      placeholder="Phone Number"
+                      formControlName="phone"
+                    />
+                    <label for="phone">Numéro Portable</label>
+                    <div *ngIf="createAccountForm.get('phone')?.invalid && createAccountForm.get('phone')?.touched" class="text-danger">
+                      A valid phone number is required.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating mb-3">
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="dob"
+                      formControlName="dob"
+                    />
+                    <label for="dob">Date De Naissance</label>
+                    <div *ngIf="createAccountForm.get('dob')?.invalid && createAccountForm.get('dob')?.touched" class="text-danger">
+                      Date of birth is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-floating mb-3">
+                    <select
+                      class="form-select"
+                      id="accountType"
+                      formControlName="accountType"
+                    >
+                      <option value="épargne">épargne</option>
+                      <option value="courant">courant</option>
+                      <option value="professionnel">professionnel</option>
+                    </select>
+                    <label for="accountType">Account Type</label>
+                    <div *ngIf="createAccountForm.get('accountType')?.invalid && createAccountForm.get('accountType')?.touched" class="text-danger">
+                      Account type is required.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating mb-3">
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="balance"
+                      placeholder="Initial Balance"
+                      formControlName="balance"
+                    />
+                    <label for="balance">Solde initial</label>
+                    <div *ngIf="createAccountForm.get('balance')?.invalid && createAccountForm.get('balance')?.touched" class="text-danger">
+                      Balance is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div formGroupName="address">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="street"
+                        placeholder="Street"
+                        formControlName="street"
+                      />
+                      <label for="street">Rue</label>
+                      <div *ngIf="createAccountForm.get('address.street')?.invalid && createAccountForm.get('address.street')?.touched" class="text-danger">
+                        Street is required.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="city"
+                        placeholder="City"
+                        formControlName="city"
+                      />
+                      <label for="city">Ville</label>
+                      <div *ngIf="createAccountForm.get('address.city')?.invalid && createAccountForm.get('address.city')?.touched" class="text-danger">
+                        City is required.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="zip"
+                        placeholder="Zip Code"
+                        formControlName="zip"
+                      />
+                      <label for="zip">Code postal</label>
+                      <div *ngIf="createAccountForm.get('address.zip')?.invalid && createAccountForm.get('address.zip')?.touched" class="text-danger">
+                        Zip Code is required.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-floating mb-3">
+                <label>Notification Preferences</label>
+                <br> <br>
+                <div class="form-check">
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    id="notificationEmail"
+                    formControlName="notificationPreference"
+                    value="email"
+                  />
+                  <label class="form-check-label" for="notificationEmail">Email</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    id="notificationSMS"
+                    formControlName="notificationPreference"
+                    value="sms"
+                  />
+                  <label class="form-check-label" for="notificationSMS">SMS</label>
+                </div>
+                <div *ngIf="createAccountForm.get('notificationPreference')?.invalid && createAccountForm.get('notificationPreference')?.touched" class="text-danger">
+                  Please select a notification preference.
+                </div>
+              </div>
+              <button class="btn btn-primary w-100 py-3" type="submit" [disabled]="createAccountForm.invalid">
+                Create Account
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,341 @@
+.stat-blocks {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  margin-left: 40px;
+ /* Espacement amélioré entre les boîtes */
+}
+
+.stat-box {
+  background: grey;
+  padding-top: 40px;
+  border-radius: 12px;
+  width: 22%;
+  height: 150px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  margin: 0px;
+  position: relative;
+}
+
+.stat-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.stat-icon {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.stat-box h3 {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stat-box p {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .stat-box {
+    width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-box {
+    width: 100%;
+  }
+}
+
+  
+  
+  /* Styles pour le cercle des notifications */
+  .notification-circle {
+    text-align: center;
+  }
+  
+  .notification-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    position: relative;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .circle-container {
+    margin-left:150px ;
+    position: relative;
+    width: 45%;
+    height: 45%;
+  }
+  
+  .circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    background-color: #ffffff;
+  }
+  
+  .email-active {
+    background-color: #007bff; /* Bleu pour Email */
+  }
+  
+  .sms-active {
+    background-color: #28a745; /* Vert pour SMS */
+  }
+  
+  .circle-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+  }
+  
+  .circle-center span {
+    display: block;
+    margin: 5px 0;
+  }
+  
+  /* Styles pour le cercle SVG */
+  svg.circle-chart {
+    display: block;
+    width: 1000%;
+    height: 1000%;
+    transform: rotate(-90deg);
+  }
+  
+  .circle-bg {
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 3.8;
+  }
+  
+  .circle-email {
+    fill: none;
+    stroke: #007bff; /* Bleu pour Email */
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    transition: stroke-dasharray 0.3s ease;
+  }
+  
+  .circle-sms {
+    fill: none;
+    stroke: #28a745; /* Vert pour SMS */
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    transition: stroke-dasharray 0.3s ease;
+  }
+  
+  /* Responsive: pour les petits écrans */
+  @media (max-width: 768px) {
+    .stat-blocks {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .stat-box {
+      width: 80%;
+      margin-bottom: 10px;
+    }
+  
+    .notification-icons {
+      width: 120px;
+      height: 120px;
+    }
+  }
+  
+
+
+
+  
+  .circle-bg {
+    fill: none;
+    stroke: #fffdfd;
+    stroke-width: 3.8;
+  }
+  
+  .circle-actif {
+    fill: none;
+    stroke: #28a745; /* Vert pour Actif */
+    stroke-width: 3.8;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: center;
+  }
+  
+  .circle-inactif {
+    fill: none;
+    stroke: #ffc107; /* Jaune pour Inactif */
+    stroke-width: 3.8;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: center;
+  }
+  
+  .circle-ferme {
+    fill: none;
+    stroke: #dc3545; /* Rouge pour Fermé */
+    stroke-width: 3.8;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: center;
+  }
+  
+  .circle-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .circle-container {
+    position: relative;
+    display: inline-block;
+  }
+
+
+  
+
+  
+
+
+
+
+  
+ 
+  
+
+  
+
+
+  
+
+
+
+  .status-bars {
+    margin: 20px auto;
+    max-width: 800px; /* Largeur totale augmentée */
+    font-family: Arial, sans-serif;
+  }
+  
+  .status-bars h3 {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .status-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Plus d'espace entre les barres */
+    gap: 10px; /* Plus d'espace entre le texte et la barre */
+  }
+  
+  .label {
+    width: 15%; /* Ajustement pour une meilleure proportion */
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .progress {
+    width: 100%; /* Largeur augmentée */
+    height: 30px; /* Hauteur augmentée */
+    background: #fffefe;
+    border-radius: 15px; /* Coins plus arrondis */
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    border-radius: 15px;
+    transition: width 0.5s ease-in-out;
+  }
+  
+  .progress-bar.actif {
+    background: #008024; /* Vert */
+  }
+  
+  .progress-bar.inactif {
+    background: #e8a427; /* Orange */
+  }
+  
+  .progress-bar.ferme {
+    background: #ff4d4d; /* Rouge */
+  }
+  
+  span {
+    width: 30%; /* Ajustement pour alignement */
+    text-align: right;
+    font-size: 1rem; /* Texte plus grand */
+    color: #555;
+    font-weight: bold;
+  }
+  
+
+  .stats-container {
+    display: flex;
+    align-items: flex-start; /* Aligne les éléments au début verticalement */
+    justify-content: space-between; /* Espacement entre les sections */
+    gap: 40px; /* Espacement horizontal entre les deux éléments */
+    margin: 20px;
+  }
+  
+  .status-bars, .notification-circle {
+    flex: 1; /* Les deux éléments prennent la même largeur */
+  }
+  
+  .status-bars {
+    margin-right: 140px; /* Optionnel : Espacement entre les barres et les cercles */
+  }
+  
+  .notification-circle {
+    text-align: center; /* Centre le contenu de la section notification */
+  }
+  
+  .circle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+
+  .stats-container {
+    display: flex;
+    align-items: center; /* Aligne les éléments verticalement */
+    gap: 20px; /* Espace horizontal entre les sections */
+  }
+  
+  .vertical-line {
+    width: 2px; /* Largeur de la ligne */
+    background-color: #a62323; /* Couleur de la ligne */
+    height: auto; /* S'étend en fonction du contenu environnant */
+    margin: 0 20px; /* Espacement horizontal autour de la ligne */
+  }
+  

@@ -1,0 +1,143 @@
+
+<div style="background-color: #E3F2FD ; padding-bottom: 50px;">
+  <br><br><br>
+<div style="margin-left: 150px;" class="stats-container">
+  <div class="status-bars">
+    <h3>Status Des Comptes</h3>
+    <div class="status-bar">
+      <div class="label">Actifs</div>
+      <div class="progress">
+        <div
+          class="progress-bar actif"
+          [style.width]="statusStats.actifPercentage + '%'"
+        ></div>
+      </div>
+      <span>{{ statusStats.actif }} ({{ statusStats.actifPercentage }}%)</span>
+    </div>
+    <div class="status-bar">
+      <div class="label">Inactifs</div>
+      <div class="progress">
+        <div
+          class="progress-bar inactif"
+          [style.width]="statusStats.inactifPercentage + '%'"
+        ></div>
+      </div>
+      <span>{{ statusStats.inactif }} ({{ statusStats.inactifPercentage }}%)</span>
+    </div>
+    <div class="status-bar">
+      <div class="label">Fermés</div>
+      <div class="progress">
+        <div
+          class="progress-bar ferme"
+          [style.width]="statusStats.fermePercentage + '%'"
+        ></div>
+      </div>
+      <span>{{ statusStats.ferme }} ({{ statusStats.fermePercentage }}%)</span>
+    </div>
+  </div>
+
+  <div class="vertical-line"></div>
+
+  <div class="notification-circle">
+    <h3 style="text-align: left; margin-left: 80px;">Notifications</h3>
+    <div style="margin-left: 60px;" class="circle-container">
+      <svg viewBox="0 0 36 36" class="circle-chart large-circle">
+        <path
+          class="circle-bg"
+          d="M18 2.0845 a 15.9155 15.9155 0 1 0 0.0001 31.831 a 15.9155 15.9155 0 1 0 -0.0001 -31.831"
+        ></path>
+        <path
+          class="circle-email"
+          [attr.stroke-dasharray]="notificationStats.emailPercentage + ', 100'"
+          d="M18 2.0845 a 15.9155 15.9155 0 1 0 0.0001 31.831 a 15.9155 15.9155 0 1 0 -0.0001 -31.831"
+        ></path>
+        <path
+          class="circle-sms"
+          [attr.stroke-dasharray]="notificationStats.smsPercentage + ', 100'"
+          d="M18 2.0845 a 15.9155 15.9155 0 1 0 0.0001 31.831 a 15.9155 15.9155 0 1 0 -0.0001 -31.831"
+        ></path>
+      </svg>
+      <div class="circle-center">
+        <p style="color: blue; font-weight: bold;">{{ notificationStats.email }} Emails</p>
+        <p style="color: rgb(0, 128, 36); font-weight: bold;">{{ notificationStats.sms }} SMS</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!--   <div class="account-type-circle">
+        <h3 style="text-align: left; margin-right:20px;">Types de Comptes</h3>
+        <div class="circle-container">
+          <svg viewBox="0 0 36 36" class="circle-chart large-circle">
+            <path
+              class="circle-bg"
+              d="M18 2.0845 a 15.9155 15.9155 0 1 0 0.0001 31.831 a 15.9155 15.9155 0 1 0 -0.0001 -31.831"
+            ></path>
+            <path
+              class="circle-epargne"
+              [attr.stroke-dasharray]="accountTypeStats.epargnePercentage + ', 100'"
+              d="M18 2.0845 a 15.9155 15.9155 0 1 0 0.0001 31.831 a 15.9155 15.9155 0 1 0 -0.0001 -31.831"
+            ></path>
+            <path
+              class="circle-courant"
+              [attr.stroke-dasharray]="accountTypeStats.courantPercentage + ', 100'"
+              d="M18 2.0845 a 15.9155 15.9155 0 1 0 0.0001 31.831 a 15.9155 15.9155 0 1 0 -0.0001 -31.831"
+            ></path>
+            <path
+              class="circle-professionnel"
+              [attr.stroke-dasharray]="accountTypeStats.professionnelPercentage + ', 100'"
+              d="M18 2.0845 a 15.9155 15.9155 0 1 0 0.0001 31.831 a 15.9155 15.9155 0 1 0 -0.0001 -31.831"
+            ></path>
+          </svg>
+          <div class="circle-center">
+            <p style="color: rgb(0, 128, 255); font-weight: bold;">{{accountTypeStats.epargne}} Épargnes</p>
+            <p style="color: rgb(232, 164, 39); font-weight: bold;">{{accountTypeStats.courant}} Courants</p>
+            <p style="color: rgb(128, 0, 128); font-weight: bold;">{{accountTypeStats.professionnel}} Profess</p>
+          </div>
+        </div>
+      </div> --> 
+      <br>
+      <div class="stat-blocks ">
+        
+        <div class="stat-box">
+          <div class="stat-icon">
+            <!-- <i class="fas fa-piggy-bank"></i> -->
+          </div>
+          <div class="stat-content">
+            <h3>Comptes Épargne</h3>
+            <p>{{ comptesParType['épargne'] || 0 }}</p>
+          </div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-icon">
+<!--             <i class="fas fa-wallet"></i>
+ -->          </div>
+          <div class="stat-content">
+            <h3>Comptes Courant</h3>
+            <p>{{ comptesParType['courant'] || 0 }}</p>
+          </div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-icon">
+<!--             <i class="fas fa-briefcase"></i>
+ -->          </div>
+          <div class="stat-content">
+            <h3>Comptes Professionnel</h3>
+            <p>{{ comptesParType['professionnel'] || 0 }}</p>
+          </div>
+        </div>
+      </div>
+  
+  
+
+  
+
+  
+  
+  <div class="mb-5" *ngIf="errorMessage">
+    <p>{{ errorMessage }}</p>
+  </div>
+  
+
+
+</div>
